@@ -1,10 +1,12 @@
 .one{
 
 background-color: bisque;
-margin-top: 200px;
+margin: 20px 20px 20px 20px;
+
 
 }
 
 .ori{
     background-color: aqua;
+    padding: 2PX 2PX 2PX 2PX ;
 }
