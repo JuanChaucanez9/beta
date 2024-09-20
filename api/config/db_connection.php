@@ -16,12 +16,14 @@ echo $number3;
 //database conetion 
 //developer juan chaucanez  
 //data quemada
-$servername = "localhost";//127.0.0.1;localhost
-$username = "postgres";//credenciales 
+$host = "localhost";
+$port = "5432";//127.0.0.1;localhost
+$username = "postgres";
+$dbname = "beta";//credenciales 
 $password = "unicesmag";
 //nombre base datos
-$dbname = "beta";
-$port = "5432";
+
+
 
 //credencial de conectividad
 $data_connection = "
