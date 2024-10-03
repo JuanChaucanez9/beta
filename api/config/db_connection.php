@@ -47,7 +47,7 @@ if (!$conn) {
 
 
 
-pg_close($conn);
+//pg_close($conn);
 
 
 ?>
