@@ -33,4 +33,6 @@ pg_close($conn);
 /* CREATE TABLE users (id SERIAL PRIMARY KEY,email varchar(150), password TEXT NOT NULL, status BOOLEAN DEFAULT TRUE , created_at T
 IMESTAMPTZ DEFAULT NOW() , update_at TIMESTAMPTZ DEFAULT NOW(), deleted_at TIMESTAMPTZ);
 */
+
+
 ?>
