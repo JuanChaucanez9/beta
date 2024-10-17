@@ -6,7 +6,7 @@ $pass = $_POST ['passwd'];
 
 $enc_pass = md5($pass);
 
-$query = "select * from users where email = '$email'";
+$query = "SELECT * from users where email = '$email'";
 $result = pg_query($conn, $query);
 $row = pg_fetch_assoc($result);
 if($row) {
@@ -21,7 +21,7 @@ if($row) {
 //DB.connection
 
 require('../../config/db_connection.php');
- 
+
 //GET data from register_form
 
 $query = "INSERT INTO users (email,password) VALUES('$email',' $enc_pass')"; //execute querry
