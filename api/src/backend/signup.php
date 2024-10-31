@@ -19,7 +19,7 @@ $data = [
 $options=[
     'http' => [
         'header' =>[ 
-    "content-Type : application/json",
+    "Content-Type : application/json",
      "Authorization: Bearer $SUPABASE_KEY",
      "apikey : $SUPABASE_KEY"
     ],
@@ -38,17 +38,18 @@ if($response === false){
 
     echo "Error al conectar con la base de datos";
    
-}
+}else{
 
-echo "user has been created ";
+    echo "user has been created ";
+}
 }
 //_______________________________________________________________________
 // la data 
 
 require "../../config/db_connection.php";
 
-$email = $_POST ['emailalias'];
-$pass = $_POST ['passwd'];
+$email = $_POST['emailalias'];
+$pass = $_POST['passwd'];
 
 $enc_pass = md5($pass);
 
@@ -78,13 +79,13 @@ $result = pg_query($conn, $query);
 if($result) {
     //echo "Registro exitoso!";
     save_data_supabase($email,$enc_pass);
-    echo "<script>alert ('registration successful!')</script>";
-    header ('refresh:0; url=http://127.0.0.1/BETA/api/src/login_form.html');
+    //echo "<script>alert ('registration successful!')</script>";
+    //header ('refresh:0; url=http://127.0.0.1/BETA/api/src/login_form.html');
 } else {
     echo "Error en el registro!";
 }
 
-pg_close($conn);
+//pg_close($conn);
 //echo "Email" . $email  ;
 //echo "<br>password : " . $pass;
 //echo "<br>enc_password : " . $enc_pass;
