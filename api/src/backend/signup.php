@@ -11,8 +11,8 @@ $url ="$SUPABASE_URL/rest/v1/users";
 //consumir data
 
 $data = [
-    "email" => $emailalias,
-    "password" => $passwd,
+    'email' => $emailalias,
+    'password' => $passwd,
  ];
 
  //hacer el push 
