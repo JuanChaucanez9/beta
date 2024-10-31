@@ -20,7 +20,7 @@ $host = "localhost";
 $port = "5432";//127.0.0.1;localhost
 $username = "postgres";
 $dbname = "beta";//credenciales 
-$password = "Dondragon_18";
+$password = "unicesmag";
 //nombre base datos
 
 

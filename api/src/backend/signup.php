@@ -1,4 +1,50 @@
 <?php 
+function save_data_supabase($emailalias, $passwd){
+
+$SUPABASE_URL ='https://anbfscwxhcpoyizceyxs.supabase.co';
+$SUPABASE_KEY ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuYmZzY3d4aGNwb3lpemNleXhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAzODg2ODYsImV4cCI6MjA0NTk2NDY4Nn0.33xy3Ou5xh4k_HlCO9ZTgdWWFfcL0_ddEUH9D6Wt-g4';
+
+//obtener la data 
+
+$url ="$SUPABASE_URL/rest/v1/users";
+
+//consumir data
+
+$data = [
+    "email" => $emailalias,
+    "password" => $passwd,
+ ];
+
+ //hacer el push 
+$options=[
+    'http' => [
+        'header' =>[ 
+    "content-Type : application/json",
+     "Authorization: Bearer $SUPABASE_KEY",
+     "apikey : $SUPABASE_KEY"
+    ],
+    'method' => 'POST',
+    'content' => json_encode($data),
+ ],
+];
+
+
+$context = stream_context_create($options);
+$response = file_get_contents($url, true  ,$context);
+//$response_data = json_decode($response, true);
+
+
+if($response === false){
+
+    echo "Error al conectar con la base de datos";
+   
+}
+
+echo "user has been created ";
+}
+//_______________________________________________________________________
+// la data 
+
 require "../../config/db_connection.php";
 
 $email = $_POST ['emailalias'];
@@ -31,6 +77,7 @@ $result = pg_query($conn, $query);
 
 if($result) {
     //echo "Registro exitoso!";
+    save_data_supabase($email,$enc_pass);
     echo "<script>alert ('registration successful!')</script>";
     header ('refresh:0; url=http://127.0.0.1/BETA/api/src/login_form.html');
 } else {
